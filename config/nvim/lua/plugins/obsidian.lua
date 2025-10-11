@@ -2,7 +2,7 @@ local knowledge_path = vim.fn.expand("~/Documents/obsidian/knowledge")
 local work_path = vim.fn.expand("~/Documents/obsidian/knowledge")
 
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   version = "*",
   lazy = true,
   ft = "markdown",
@@ -14,13 +14,12 @@ return {
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
+    "godlygeek/tabular",
+    "preservim/vim-markdown",
     "saghen/blink.cmp",
     {
-      "MeanderingProgrammer/render-markdown.nvim",
-      dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-      },
-      config = true, -- or `opts = {}`
+      "OXY2DEV/markview.nvim",
+      lazy = false,
     },
   },
   opts = {
@@ -53,16 +52,9 @@ return {
     },
 
     completion = {
+      nvim_cmp = false,
+      blink = true,
       min_chars = 2,
-    },
-
-    mappings = {
-      ["gf"] = {
-        action = function()
-          return require("obsidian").util.gf_passthrough()
-        end,
-        opts = { noremap = false, expr = true, buffer = true },
-      },
     },
 
     new_notes_location = "notes_subdir",
@@ -127,12 +119,8 @@ return {
       vim.fn.jobstart({ "open", url }) -- Mac OS
     end,
 
-    use_advanced_uri = false,
-
-    open_app_foreground = false,
-
     picker = {
-      name = "fzf-lua",
+      name = "snacks.pick",
       note_mappings = {
         new = "<C-x>",
         insert_link = "<C-l>",
