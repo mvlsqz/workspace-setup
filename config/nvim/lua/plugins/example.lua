@@ -15,6 +15,7 @@ if true then
           "shfmt",
           "flake8",
           "gopls",
+          "marksman",
         },
       },
     },
