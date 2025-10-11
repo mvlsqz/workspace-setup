@@ -9,6 +9,8 @@ return {
   event = {
     "BufReadPre " .. work_path,
     "BufReadPre " .. knowledge_path,
+    "BufNewFile " .. work_path,
+    "BufNewFile " .. knowledge_path,
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
