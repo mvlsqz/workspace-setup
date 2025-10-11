@@ -1,8 +1,15 @@
+local knowledge_path = vim.fn.expand("~/Documents/obsidian/knowledge")
+local work_path = vim.fn.expand("~/Documents/obsidian/knowledge")
+
 return {
   "epwalsh/obsidian.nvim",
   version = "*",
   lazy = true,
-  command = "Obsidian",
+  ft = "markdown",
+  event = {
+    "BufReadPre " .. work_path,
+    "BufReadPre " .. knowledge_path,
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "saghen/blink.cmp",
@@ -18,11 +25,11 @@ return {
     workspaces = {
       {
         name = "knowledge",
-        path = vim.fn.expand("~/Documents/obsidian/knowledge"),
+        path = knowledge_path,
       },
       {
         name = "work",
-        path = vim.fn.expand("~/Documents/obsidian/work"),
+        path = work_path,
       },
     },
 

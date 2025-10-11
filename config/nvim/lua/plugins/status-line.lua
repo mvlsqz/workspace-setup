@@ -166,13 +166,13 @@ ins_right({
   "fileformat",
   fmt = string.lower,
   icons_enabled = true,
-  color = { fg = colors.sky, gui = "bold" },
+  color = { fg = colors.green, gui = "bold" },
 })
 
 ins_right({
   "branch",
   icon = "󰘬",
-  color = { fg = colors.violet, gui = "bold" },
+  color = { fg = colors.blue, gui = "bold" },
 })
 
 ins_right({
