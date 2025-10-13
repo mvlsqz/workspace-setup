@@ -106,6 +106,9 @@ ins_left({
   "filename",
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = "bold" },
+  shorting_options = {
+    min_length = 10,
+  },
 })
 
 ins_left({ "location" })

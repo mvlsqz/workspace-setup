@@ -12,6 +12,7 @@ if true then
           "stylua",
           "shellcheck",
           "lua-language-server",
+          "js-debug-adapter",
           "shfmt",
           "flake8",
           "gopls",
