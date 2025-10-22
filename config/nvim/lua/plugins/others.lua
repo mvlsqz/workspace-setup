@@ -39,6 +39,8 @@ return {
         "lua",
         "markdown",
         "markdown_inline",
+        "jinja",
+        "jinja_inline",
         "python",
         "query",
         "regex",
