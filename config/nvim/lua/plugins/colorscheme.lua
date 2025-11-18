@@ -20,6 +20,8 @@ return {
       },
       plugins = {
         mini_files = true,
+        mini_icons = true,
+        lazygit = true,
       },
     },
   },

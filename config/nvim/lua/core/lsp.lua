@@ -3,4 +3,5 @@ vim.lsp.enable({
   "ansiblels",
   "gopls",
   "marksman",
+  "bashls",
 })
