@@ -133,7 +133,7 @@ return {
     sort_by = "modified",
     sort_reversed = true,
 
-    open_notes_in = "vsplit",
+    open_notes_in = "current",
 
     ui = {
       enable = false,

@@ -210,6 +210,8 @@ copy_command "pbcopy"
 copy_clipboard "system"
 copy_on_select true
 
+show_startup_tips false
+
 // Theme and UI settings
 theme "tokyo-night"
 simplified_ui true
