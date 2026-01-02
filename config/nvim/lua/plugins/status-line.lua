@@ -1,9 +1,10 @@
-local daytime = require("mvlsqz").daytime()
-local colors, _ = require("tokyonight.colors").setup({
-  on_colors = function() end,
-  on_highlights = function() end,
-  style = daytime,
-})
+local scheme_config = require("mvlsqz")
+local colors = function()
+  return scheme_config.get_statusline_colors()
+end
+local bg_color = function()
+  return colors().bg
+end
 
 local conditions = {
   buffer_not_empty = function()
@@ -25,11 +26,7 @@ local config = {
     -- Disable sections and component separators
     component_separators = "",
     section_separators = "",
-    theme = {
-      -- are just setting default looks o statusline
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
-    },
+    theme = "auto",
   },
   sections = {
     -- these are to remove the defaults
@@ -70,26 +67,26 @@ ins_left({
   color = function()
     -- auto change color according to neovims mode
     local mode_color = {
-      n = colors.teal,
-      i = colors.green,
-      v = colors.blue,
-      [""] = colors.blue,
-      V = colors.blue,
-      c = colors.magenta,
-      no = colors.red,
-      s = colors.orange,
-      S = colors.orange,
-      [""] = colors.orange,
-      ic = colors.yellow,
-      R = colors.violet,
-      Rv = colors.violet,
-      cv = colors.red,
-      ce = colors.red,
-      r = colors.cyan,
-      rm = colors.cyan,
-      ["r?"] = colors.cyan,
-      ["!"] = colors.red,
-      t = colors.red,
+      n = colors().teal,
+      i = colors().green,
+      v = colors().blue,
+      [""] = colors().blue,
+      V = colors().blue,
+      c = colors().magenta,
+      no = colors().red,
+      s = colors().orange,
+      S = colors().orange,
+      [""] = colors().orange,
+      ic = colors().yellow,
+      R = colors().violet,
+      Rv = colors().violet,
+      cv = colors().red,
+      ce = colors().red,
+      r = colors().cyan,
+      rm = colors().cyan,
+      ["r?"] = colors().cyan,
+      ["!"] = colors().red,
+      t = colors().red,
     }
     return { fg = mode_color[vim.fn.mode()] }
   end,
@@ -105,7 +102,7 @@ ins_left({
 ins_left({
   "filename",
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = "bold" },
+  color = { fg = colors().magenta, gui = "bold" },
   shorting_options = {
     min_length = 10,
   },
@@ -113,16 +110,16 @@ ins_left({
 
 ins_left({ "location" })
 
-ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
+ins_left({ "progress", color = { fg = colors().fg, gui = "bold" } })
 
 ins_left({
   "diagnostics",
   sources = { "nvim_diagnostic" },
   symbols = { error = " ", warn = " ", info = " " },
   diagnostics_color = {
-    error = { fg = colors.red },
-    warn = { fg = colors.peach },
-    info = { fg = colors.cyan },
+    error = { fg = colors().red },
+    warn = { fg = colors().peach },
+    info = { fg = colors().cyan },
   },
 })
 
@@ -154,7 +151,7 @@ ins_left({
     return msg
   end,
   icon = " ",
-  color = { fg = colors.yellow, gui = "bold" },
+  color = { fg = colors().yellow, gui = "bold" },
 })
 
 ins_right({
@@ -162,29 +159,29 @@ ins_right({
   "filetype",
   fmt = string.lower,
   cond = conditions.hide_in_width,
-  color = { fg = colors.blue, gui = "bold" },
+  color = { fg = colors().blue, gui = "bold" },
 })
 
 ins_right({
   "fileformat",
   fmt = string.lower,
   icons_enabled = true,
-  color = { fg = colors.green, gui = "bold" },
+  color = { fg = colors().green, gui = "bold" },
 })
 
 ins_right({
   "branch",
   icon = "󰘬",
-  color = { fg = colors.blue, gui = "bold" },
+  color = { fg = colors().blue, gui = "bold" },
 })
 
 ins_right({
   "diff",
   symbols = { added = "󱓊 ", modified = " ", removed = "󱓌 " },
   diff_color = {
-    added = { fg = colors.green },
-    modified = { fg = colors.orange },
-    removed = { fg = colors.red },
+    added = { fg = colors().green },
+    modified = { fg = colors().orange },
+    removed = { fg = colors().red },
   },
   cond = conditions.hide_in_width,
 })
@@ -193,7 +190,7 @@ ins_right({
   function()
     return "󱑻 "
   end,
-  color = { fg = colors.red },
+  color = { fg = colors().red },
   padding = { left = 1 },
 })
 

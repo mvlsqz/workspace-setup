@@ -1,11 +1,17 @@
 local scheme_config = require("mvlsqz")
 local daytime = scheme_config.daytime()
+local fox_variant = scheme_config.fox_variant()
 
 if daytime ~= "day" then
   vim.opt.bg = "dark"
+else
+  vim.opt.bg = "light"
 end
 
 return {
+  {
+    "EdenEast/nightfox.nvim",
+  },
   { -- colorscheme
     "folke/tokyonight.nvim",
     opts = {
@@ -23,6 +29,12 @@ return {
         mini_icons = true,
         lazygit = true,
       },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = fox_variant,
     },
   },
 }
