@@ -162,6 +162,16 @@ keybinds clear-defaults=true {
   }
 
   shared_except "locked" {
+    bind "Alt ." {
+      Run  "sunbeam" {
+        close_on_exit true
+        name "Sunbeam"
+        floating true
+        width "40%"
+        height "40%"
+      };
+      SwitchToMode "normal";
+    }
     bind "Ctrl h" {
         MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
             name "move_focus";
