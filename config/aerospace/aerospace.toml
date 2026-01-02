@@ -1,7 +1,7 @@
 after-login-command = []
 
 after-startup-command = [
-  'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0',
+  'exec-and-forget borders active_color=0xff00ff00 inactive_color=0xff555555 width=8.0',
 ]
 
 start-at-login = true
@@ -47,8 +47,6 @@ alt-shift-l = 'move right'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
-cmd-1 = 'workspace 1'
-cmd-6 = 'workspace 6'
 cmd-7 = 'workspace 7'
 cmd-8 = 'workspace 8'
 cmd-9 = 'workspace 9'
@@ -64,8 +62,6 @@ cmd-p = 'workspace P'
 cmd-u = 'workspace U'
 cmd-y = 'workspace Y'
 
-cmd-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
-cmd-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
 cmd-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
 cmd-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
 cmd-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
@@ -82,6 +78,16 @@ cmd-shift-u = ['move-node-to-workspace U', 'workspace U']
 cmd-shift-y = ['move-node-to-workspace Y', 'workspace Y']
 
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+cmd-alt-h = 'focus-monitor left'
+cmd-alt-j = 'focus-monitor down'
+cmd-alt-k = 'focus-monitor up'
+cmd-alt-l = 'focus-monitor right'
+
+ctrl-alt-h = ['move-node-to-monitor left', 'focus-monitor left']
+ctrl-alt-j = ['move-node-to-monitor down', 'focus-monitor down']
+ctrl-alt-k = ['move-node-to-monitor up', 'focus-monitor up']
+ctrl-alt-l = ['move-node-to-monitor right', 'focus-monitor right']
 
 alt-shift-s = 'mode service'
 alt-shift-r = 'mode resize'
@@ -105,14 +111,29 @@ b = 'balance-sizes'
 esc = ['mode main']
 
 [workspace-to-monitor-force-assignment]
-1 = 'secondary'
-2 = 'secondary'
-6 = 'secondary'
-8 = 'secondary'
-9 = 'secondary'
-B = 'secondary'
-M = 'secondary'
+# Left MAIN monitor (bottom FlipGo-H1, best resolution) - Primary work
+8 = [2, 'FlipGo-H1', '^built-in']
+E = [2, 'FlipGo-H1', '^built-in']
+G = [2, 'FlipGo-H1', '^built-in']
+I = [2, 'FlipGo-H1', '^built-in']
+O = [2, 'FlipGo-H1', '^built-in']
+P = [2, 'FlipGo-H1', '^built-in']
+U = [2, 'FlipGo-H1', '^built-in']
+Y = [2, 'FlipGo-H1', '^built-in']
 
+# Left TOP monitor - Dev/Secondary work (FlipGo-A1)
+7 = [1, 'FlipGo-A1', '^built-in']
+9 = [1, 'FlipGo-A1', '^built-in']
+A = [1, 'FlipGo-A1', '^built-in']
+B = [1, 'FlipGo-A1', '^built-in']
+
+# Right LAPTOP monitor - Comms/Notes (Built-in)
+M = [3, '^built-in']
+N = [3, '^built-in']
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = 'move-node-to-workspace A'
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
 run = 'move-node-to-workspace Y'
