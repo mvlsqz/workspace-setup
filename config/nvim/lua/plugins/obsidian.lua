@@ -23,6 +23,7 @@ return {
     },
   },
   opts = {
+    legacy_commands = false,
     workspaces = {
       {
         name = "knowledge",
@@ -93,31 +94,42 @@ return {
       return string.format("%s-", os.time())
     end,
 
-    disable_frontmatter = false,
+    -- disable_frontmatter is deprecated, use frontmatter.enabled instead.
+    -- Feature will be removed in obsidian.nvim 4.0
+    -- top-level 'sort_by' is deprecated, use search.sort_by instead.
+    -- Feature will be removed in obsidian.nvim 3.16
+    -- top-level 'sort_reversed' is deprecated, use search.sort_reversed instead.
+    -- Feature will be removed in obsidian.nvim 3.16
+    -- attachments.img_folder is deprecated, use attachments.folder instead.
+    -- Feature will be removed in obsidian.nvim 3.16
+    -- follow_url_func is deprecated, use vim.ui.open, see https://github.com/obsidian-nvim/obsidian.nvim/wiki/Attachment instead.
+    -- Feature will be removed in obsidian.nvim 3.16
+    -- legacy_commands is deprecated, use move from commands like `ObsidianBacklinks` to `Obsidian backlinks`
+    -- and set `opts.legacy_commands` to false to get rid of this warning.
+    -- see https://github.com/obsidian-nvim/obsidian.nvim/wiki/Commands for details.
+    --      instead.
+    -- Feature will be removed in obsidian.nvim 4.0
 
-    ---@return table
-    note_frontmatter_func = function(note)
-      if note.title then
-        note:add_alias(note.title)
-      end
-
-      local out = { id = note.id, aliases = note.aliases, tags = note.tags }
-
-      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
-        for k, v in pairs(note.metadata) do
-          out[k] = v
+    frontmatter = {
+      enabled = false,
+    },
+    note_frontmatter = {
+      func = function(note)
+        if note.title then
+          note:add_alias(note.title)
         end
-      end
 
-      return out
-    end,
+        local out = { id = note.id, aliases = note.aliases, tags = note.tags }
 
-    -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
-    -- URL it will be ignored but you can customize this behavior here.
-    ---@param url string
-    follow_url_func = function(url)
-      vim.fn.jobstart({ "open", url }) -- Mac OS
-    end,
+        if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+          for k, v in pairs(note.metadata) do
+            out[k] = v
+          end
+        end
+
+        return out
+      end,
+    },
 
     picker = {
       name = "snacks.pick",
@@ -140,7 +152,7 @@ return {
     },
 
     attachments = {
-      img_folder = "assets/imgs", -- This is the default
+      folder = "assets/imgs", -- This is the default
       img_text_func = function(client, path)
         path = client:vault_relative_path(path) or path
         return string.format("![%s](%s)", path.name, path)
