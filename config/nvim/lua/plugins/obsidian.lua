@@ -142,8 +142,11 @@ return {
         insert_tag = "<C-l>",
       },
     },
-    sort_by = "modified",
-    sort_reversed = true,
+
+    search = {
+      sort_by = "modified",
+      sort_reversed = true,
+    },
 
     open_notes_in = "current",
 
