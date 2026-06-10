@@ -1,6 +1,6 @@
 return {
   "yetone/avante.nvim",
-opts = function(_, opts)
+  opts = function(_, opts)
     -- Simply return the desired configuration table
     return {
       input = { provider = "snacks" }, -- Uses snacks.nvim for input UI
@@ -8,7 +8,7 @@ opts = function(_, opts)
       acp_providers = {
         ["opencode"] = {
           command = "opencode", -- Invokes the opencode binary
-          args = { "acp" },     -- Passes "acp" argument to opencode binary
+          args = { "acp" }, -- Passes "acp" argument to opencode binary
         },
       },
       provider = "opencode", -- Sets opencode as the default ACP provider
@@ -18,3 +18,4 @@ opts = function(_, opts)
     }
   end,
 }
+

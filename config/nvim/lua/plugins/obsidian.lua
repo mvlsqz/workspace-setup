@@ -79,36 +79,14 @@ return {
       return path:with_suffix(".md")
     end,
 
-    wiki_link_func = function(opts)
-      return require("obsidian.util").wiki_link_id_prefix(opts)
-    end,
-
-    markdown_link_func = function(opts)
-      return require("obsidian.util").markdown_link(opts)
-    end,
-
-    preferred_link_style = "markdown",
+    link = {
+      style = "markdown",
+    },
 
     ---@return string
     image_name_func = function()
       return string.format("%s-", os.time())
     end,
-
-    -- disable_frontmatter is deprecated, use frontmatter.enabled instead.
-    -- Feature will be removed in obsidian.nvim 4.0
-    -- top-level 'sort_by' is deprecated, use search.sort_by instead.
-    -- Feature will be removed in obsidian.nvim 3.16
-    -- top-level 'sort_reversed' is deprecated, use search.sort_reversed instead.
-    -- Feature will be removed in obsidian.nvim 3.16
-    -- attachments.img_folder is deprecated, use attachments.folder instead.
-    -- Feature will be removed in obsidian.nvim 3.16
-    -- follow_url_func is deprecated, use vim.ui.open, see https://github.com/obsidian-nvim/obsidian.nvim/wiki/Attachment instead.
-    -- Feature will be removed in obsidian.nvim 3.16
-    -- legacy_commands is deprecated, use move from commands like `ObsidianBacklinks` to `Obsidian backlinks`
-    -- and set `opts.legacy_commands` to false to get rid of this warning.
-    -- see https://github.com/obsidian-nvim/obsidian.nvim/wiki/Commands for details.
-    --      instead.
-    -- Feature will be removed in obsidian.nvim 4.0
 
     frontmatter = {
       enabled = false,
