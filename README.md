@@ -7,6 +7,7 @@ Repository to store my dotfiles and tooling configurations for a productive deve
 This repository contains configuration files for:
 
 - **Neovim** - LazyVim-based configuration with extensive LSP support (372+ language servers)
+- **Neovim Notes** - Lightweight dedicated config for Obsidian note-taking with visual markdown rendering
 - **Aerospace** - i3-like tiling window manager for macOS with borders integration
 - **Fish Shell** - Enhanced shell with plugin manager and multiple integrations
 - **Ghostty** - Fast, native terminal emulator with custom themes
@@ -28,6 +29,14 @@ This repository contains configuration files for:
 │   │   ├── ftdetect/         # Filetype detection
 │   │   ├── ftplugin/         # Filetype-specific settings
 │   │   └── lazy-lock.json    # Plugin version lock file
+│   │
+│   ├── nvim-notes/           # Lightweight Neovim config for note-taking
+│   │   ├── init.lua          # Entry point
+│   │   ├── lazyvim.json      # Minimal LazyVim extras
+│   │   └── lua/
+│   │       ├── core/         # Lazy.nvim bootstrap
+│   │       ├── mvlsqz/       # Colorscheme logic (day/night)
+│   │       └── plugins/      # markview, obsidian, colorscheme, misc
 │   │
 │   ├── aerospace/            # Aerospace window manager
 │   │   └── aerospace.toml    # Enhanced config with borders integration
@@ -96,6 +105,9 @@ Symbolic links allow you to keep the configurations in sync with the repository:
 # Neovim
 ln -s "$(pwd)/config/nvim" ~/.config/nvim
 
+# Neovim Notes (lightweight note-taking config)
+ln -s "$(pwd)/config/nvim-notes" ~/.config/nvim-notes
+
 # Aerospace
 ln -s "$(pwd)/config/aerospace" ~/.config/aerospace
 
@@ -123,6 +135,19 @@ ln -s "$(pwd)/.tmux.conf" ~/.tmux.conf
   - Tmux navigator integration
 - **Organized Structure**: Separated config, core, and plugin directories
 - **Filetype Support**: Custom detection for Ansible, Jinja, Terraform, Groovy, JSON
+
+### Neovim Notes
+- **Purpose**: Lightweight, dedicated Neovim config for Obsidian note-taking
+- **Launch**: `NVIM_APPNAME=nvim-notes nvim` (or create an alias like `notes`)
+- **Visual Rendering**: markview.nvim with full visual overhaul:
+  - Icon-based heading hierarchy (◈ ◇ ◆ ▸ ▹ ▪)
+  - Obsidian-compatible callouts (note, tip, warning, danger, example, etc.)
+  - Styled code blocks with language labels
+  - Bordered tables with proper alignment
+  - Custom checkboxes (checked, unchecked, pending, cancelled, deferred)
+- **Vault Integration**: obsidian.nvim configured for ~/Documents/obsidian/knowledge
+- **Minimal Plugins**: No AI, no autocompletion, no debugging — just markdown rendering
+- **Colorscheme**: Same day/night logic (dawnfox day / tokyonight night)
 
 ### Aerospace
 - **Enhanced Navigation**: Cmd-based hjkl navigation instead of Alt
