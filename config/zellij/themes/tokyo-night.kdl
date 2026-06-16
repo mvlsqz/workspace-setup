@@ -1,0 +1,160 @@
+themes {
+  tokyo-night {
+    // Base 16 colors
+    bg "#1a1b26"
+    fg "#a9b1d6"
+    black "#32344a"
+    red "#f7768e"
+    green "#9ece6a"
+    yellow "#e0af68"
+    blue "#7aa2f7"
+    magenta "#bb9af7"
+    cyan "#7dcfff"
+    white "#a9b1d6"
+    orange "#ff9e64"
+
+    // Text
+    text_unselected {
+      base 86 95 137      // #565f89 - muted text
+      background 26 27 38  // #1a1b26 - bg
+      emphasis_0 122 162 247  // #7aa2f7 - blue
+      emphasis_1 158 154 247  // #9e9af7 - purple
+      emphasis_2 125 207 255  // #7dcfff - cyan
+      emphasis_3 255 158 100  // #ff9e64 - orange
+    }
+
+    text_selected {
+      base 26 27 38        // #1a1b26 - bg
+      background 122 162 247  // #7aa2f7 - blue
+      emphasis_0 26 27 38
+      emphasis_1 26 27 38
+      emphasis_2 26 27 38
+      emphasis_3 26 27 38
+    }
+
+    // Tabs and mode indicators (ribbons)
+    ribbon_unselected {
+      base 86 95 137       // #565f89 - tab text
+      emphasis_0 169 177 214  // #a9b1d6 - whiteish indices
+      emphasis_1 158 154 247
+      emphasis_2 125 207 255
+      emphasis_3 255 158 100
+    }
+
+    ribbon_selected {
+      base 26 27 38         // #1a1b26 - text on active tab
+      emphasis_0 26 27 38
+      emphasis_1 26 27 38
+      emphasis_2 26 27 38
+      emphasis_3 26 27 38
+    }
+
+    // Tables (session manager, etc)
+    table_title {
+      base 122 162 247
+      background 26 27 38
+      emphasis_0 158 154 247
+      emphasis_1 125 207 255
+      emphasis_2 255 158 100
+      emphasis_3 175 158 247
+    }
+
+    table_cell_unselected {
+      base 169 177 214
+      background 26 27 38
+      emphasis_0 122 162 247
+      emphasis_1 158 154 247
+      emphasis_2 125 207 255
+      emphasis_3 255 158 100
+    }
+
+    table_cell_selected {
+      base 26 27 38
+      background 50 52 74
+      emphasis_0 122 162 247
+      emphasis_1 158 154 247
+      emphasis_2 125 207 255
+      emphasis_3 255 158 100
+    }
+
+    // Lists
+    list_unselected {
+      base 169 177 214
+      background 26 27 38
+      emphasis_0 122 162 247
+      emphasis_1 158 154 247
+      emphasis_2 125 207 255
+      emphasis_3 255 158 100
+    }
+
+    list_selected {
+      base 26 27 38
+      background 50 52 74
+      emphasis_0 122 162 247
+      emphasis_1 158 154 247
+      emphasis_2 125 207 255
+      emphasis_3 255 158 100
+    }
+
+    // Pane frames
+    frame_unselected {
+      base 50 52 74         // #32344a - subtle borders
+      background 26 27 38
+      emphasis_0 122 162 247
+      emphasis_1 158 154 247
+      emphasis_2 125 207 255
+      emphasis_3 255 158 100
+    }
+
+    frame_selected {
+      base 122 162 247      // #7aa2f7 - active pane border
+      background 26 27 38
+      emphasis_0 158 154 247
+      emphasis_1 125 207 255
+      emphasis_2 255 158 100
+      emphasis_3 175 158 247
+    }
+
+    frame_highlight {
+      base 158 154 247      // purple for mode indicators
+      background 26 27 38
+      emphasis_0 122 162 247
+      emphasis_1 125 207 255
+      emphasis_2 255 158 100
+      emphasis_3 175 158 247
+    }
+
+    // Exit codes
+    exit_code_success {
+      base 158 206 106      // #9ece6a - green
+      background 0 0 0
+      emphasis_0 0 0 0
+      emphasis_1 0 0 0
+      emphasis_2 0 0 0
+      emphasis_3 0 0 0
+    }
+
+    exit_code_error {
+      base 247 118 142      // #f7768e - red
+      background 0 0 0
+      emphasis_0 0 0 0
+      emphasis_1 0 0 0
+      emphasis_2 0 0 0
+      emphasis_3 0 0 0
+    }
+
+    // Multiplayer colors
+    multiplayer_user_colors {
+      player_1 247 118 142
+      player_2 125 207 255
+      player_3 158 206 106
+      player_4 224 175 104
+      player_5 158 154 247
+      player_6 255 158 100
+      player_7 122 162 247
+      player_8 169 177 214
+      player_9 86 95 137
+      player_10 50 52 74
+    }
+  }
+}
