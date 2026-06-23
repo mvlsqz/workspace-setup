@@ -19,6 +19,9 @@ Thumbs.db
 *.bak
 *.log
 
+# Compiled spell files (source is .add)
+*.spl
+
 # Plugin directories (if using package managers)
 .config/nvim/plugin/
 .config/fish/fish_variables

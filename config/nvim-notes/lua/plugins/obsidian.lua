@@ -37,8 +37,6 @@ return {
     },
 
     completion = {
-      nvim_cmp = false,
-      blink = false,
       min_chars = 2,
     },
 
