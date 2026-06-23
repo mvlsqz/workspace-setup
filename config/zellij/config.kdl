@@ -47,9 +47,9 @@ keybinds clear-defaults=true {
     bind "Esc" { SwitchToMode "Normal"; }
     bind "Enter" { SwitchToMode "Normal"; }
     
-    bind "h" { GoToPreviousTab; }
-    bind "l" { GoToNextTab; }
-    bind "n" { NewTab;}
+    bind "h" { GoToPreviousTab; SwitchToMode "Normal"; }
+    bind "l" { GoToNextTab; SwitchToMode "Normal"; }
+    bind "n" { NewTab; SwitchToMode "Normal";}
     bind "x" { CloseTab; }
     bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
     bind "s" { ToggleActiveSyncTab; }
