@@ -5,10 +5,6 @@ return {
   version = "*",
   lazy = true,
   ft = "markdown",
-  event = {
-    "BufReadPre " .. knowledge_path,
-    "BufNewFile " .. knowledge_path,
-  },
   dependencies = {
     "nvim-lua/plenary.nvim",
   },
@@ -18,6 +14,22 @@ return {
       {
         name = "knowledge",
         path = knowledge_path,
+      },
+      {
+        name = "current",
+        path = function()
+          return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
+        end,
+        overrides = {
+          notes_subdir = vim.NIL,
+          new_notes_location = "current_dir",
+          templates = {
+            folder = vim.NIL,
+          },
+          frontmatter = {
+            enabled = false,
+          },
+        },
       },
     },
 
