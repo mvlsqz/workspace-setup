@@ -11,6 +11,7 @@ This repository contains configuration files for:
 - **Aerospace** - i3-like tiling window manager for macOS with borders integration
 - **Fish Shell** - Enhanced shell with plugin manager and multiple integrations
 - **Ghostty** - Fast, native terminal emulator with custom themes
+- **Herdr** - Terminal workspace manager configured to mirror Zellij's keybindings and minimal UI
 - **Tmux** - Terminal multiplexer with vi-mode keybindings
 
 ## Repository Structure
@@ -53,13 +54,16 @@ This repository contains configuration files for:
 │   │   ├── functions/        # Custom Fish functions
 │   │   └── completions/      # Shell completions
 │   │
-│   └── ghostty/              # Ghostty terminal
-│       ├── config            # Main config with Monaspace font
-│       └── themes/           # Custom themes
-│           ├── day           # Light theme
-│           ├── latte         # Catppuccin Latte
-│           ├── mocha         # Catppuccin Mocha
-│           └── moon          # Dark theme
+│   ├── ghostty/              # Ghostty terminal emulator
+│   │   ├── config            # Main config with Monaspace font
+│   │   └── themes/           # Custom themes
+│   │       ├── day           # Light theme
+│   │       ├── latte         # Catppuccin Latte
+│   │       ├── mocha         # Catppuccin Mocha
+│   │       └── moon          # Dark theme
+│   │
+│   └── herdr/                # Herdr terminal workspace manager
+│       └── config.toml       # Mirrors Zellij's theme, UI, and keybindings
 │
 ├── .tmux.conf                # Tmux configuration
 ├── .gitignore
@@ -93,6 +97,10 @@ You can manually copy individual configuration files or use symbolic links to se
    # Ghostty
    cp -r config/ghostty ~/.config/
 
+   # Herdr
+   mkdir -p ~/.config/herdr
+   cp config/herdr/config.toml ~/.config/herdr/config.toml
+
    # Tmux
    cp .tmux.conf ~/
    ```
@@ -116,6 +124,10 @@ ln -s "$(pwd)/config/fish" ~/.config/fish
 
 # Ghostty
 ln -s "$(pwd)/config/ghostty" ~/.config/ghostty
+
+# Herdr
+mkdir -p ~/.config/herdr
+ln -s "$(pwd)/config/herdr/config.toml" ~/.config/herdr/config.toml
 
 # Tmux
 ln -s "$(pwd)/.tmux.conf" ~/.tmux.conf
@@ -198,6 +210,14 @@ ln -s "$(pwd)/.tmux.conf" ~/.tmux.conf
 - **Window Numbering**: Starts at 1 instead of 0
 - **Auto-renumbering**: Windows renumber automatically
 
+### Herdr
+
+- **Zellij-Flavored Keybindings**: `ctrl+g` prefix with `hjkl` pane navigation, `v`/`s` for splits, and `t`/`p`/`n` for tabs
+- **Minimal UI**: Hidden pane borders/gaps and compact sidebar to match Zellij's simplified look
+- **Nightfox-ish Theme**: Built on Herdr's `tokyo-night` theme with Nightfox palette overrides
+- **Agent Session Restore**: Keeps supported AI agent panes resumable after restarts
+- **Keeps Zellij Installed**: Herdr is added alongside the existing Zellij config, not replacing it
+
 ## Key Features
 
 ### Fish Plugins (via Fisher)
@@ -236,6 +256,7 @@ Make sure you have the following tools installed:
 - [Aerospace](https://github.com/nikitabobko/AeroSpace) (macOS only)
 - [Fish Shell](https://fishshell.com/)
 - [Ghostty](https://ghostty.org/)
+- [Herdr](https://herdr.dev/) (terminal workspace manager)
 - [Tmux](https://github.com/tmux/tmux)
 
 ### Optional Dependencies
@@ -281,6 +302,7 @@ Make sure you have the following tools installed:
 - **Fish Plugins**: Run `fisher list` to see installed plugins
 - **Aerospace**: Check if borders are active with window focus changes
 - **Ghostty Themes**: Verify theme switching between light/dark modes
+- **Herdr**: Run `herdr status` to confirm the binary is available, then start Herdr and run `herdr server reload-config` to verify the configuration loads without warnings.
 
 ### Troubleshooting
 
