@@ -20,7 +20,7 @@ new_cwd = "follow"
 prefix = "ctrl+g"
 
 help = "prefix+?"
-settings = "prefix+s"
+settings = "prefix+shift+s"
 reload_config = "prefix+shift+r"
 detach = "prefix+d"
 
