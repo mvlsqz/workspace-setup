@@ -17,7 +17,7 @@ shell_mode = "auto"
 new_cwd = "follow"
 
 [keys]
-prefix = "ctrl+g"
+prefix = "alt+g"
 
 help = "prefix+?"
 settings = "prefix+shift+s"

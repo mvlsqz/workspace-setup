@@ -212,7 +212,7 @@ ln -s "$(pwd)/.tmux.conf" ~/.tmux.conf
 
 ### Herdr
 
-- **Zellij-Flavored Keybindings**: `ctrl+g` prefix with `hjkl` pane navigation, `v`/`s` for splits, and `t`/`p`/`n` for tabs
+- **Zellij-Flavored Keybindings**: `alt+g` prefix with `hjkl` pane navigation, `v`/`s` for splits, and `t`/`p`/`n` for tabs
 - **Minimal UI**: Hidden pane borders/gaps and compact sidebar to match Zellij's simplified look
 - **Nightfox-ish Theme**: Built on Herdr's `tokyo-night` theme with Nightfox palette overrides
 - **Agent Session Restore**: Keeps supported AI agent panes resumable after restarts
