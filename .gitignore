@@ -32,3 +32,6 @@ Thumbs.db
 
 # Git worktrees
 .worktrees/
+
+# Agent design docs (keep local, not versioned)
+docs/superpowers/
