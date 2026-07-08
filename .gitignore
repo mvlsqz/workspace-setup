@@ -35,3 +35,10 @@ Thumbs.db
 
 # Agent design docs (keep local, not versioned)
 docs/superpowers/
+
+# Local agent/tool state
+.atl/
+
+# Herdr runtime state (per-machine, not versioned)
+config/herdr/session.json
+config/herdr/release-notes.json
