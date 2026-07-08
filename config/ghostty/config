@@ -4,7 +4,7 @@ font-family-bold = Monaspace Krypton Var
 font-style-bold = ExtraBold
 font-family-italic = Monaspace Radon
 font-style-italic = Wide SemiBold Italic
-font-size = 23
+font-size = 21
 font-feature = calt
 font-feature = liga
 font-feature = dlig
@@ -20,7 +20,7 @@ font-feature = ss08
 macos-titlebar-style = hidden
 
 mouse-scroll-multiplier = 2
-window-decoration = false
+window-decoration = auto
 window-padding-x = 8
 window-padding-y = 8
 window-padding-balance = true
@@ -36,7 +36,7 @@ keybind = alt+right=unbind
 keybind = alt+b=unbind
 keybind = alt+f=unbind
 macos-option-as-alt = true
-theme = dark:moon,light:day
+theme = dark:nightfox,light:dawnfox
 background-opacity = 0.98
 adjust-cell-width = 0
 adjust-cell-height = 25%
