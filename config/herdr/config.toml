@@ -56,6 +56,16 @@ toggle_sidebar = "prefix+b"
 copy_mode = "prefix+["
 edit_scrollback = "prefix+e"
 
+# Custom command: run sunbeam in a right split, auto-close on exit.
+# Mirrors the zellij "Alt ." floating-pane binding. Herdr has no floating
+# panes, so the wrapper opens a tiled right split via `herdr pane split`
+# then closes it when sunbeam exits. See herdr-sunbeam-split.sh.
+[[keys.command]]
+key = "alt+."
+type = "shell"
+command = "~/.config/herdr/herdr-sunbeam-split.sh"
+description = "run sunbeam (right split)"
+
 navigate_pane_left = "h"
 navigate_pane_down = "j"
 navigate_pane_up = "k"
